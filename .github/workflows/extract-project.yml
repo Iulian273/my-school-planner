@@ -1,0 +1,28 @@
+
+name: Extract School Planner
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v4
+
+      - name: Extract version 14.9
+        run: |
+          mkdir -p native-project
+          unzip -o My_School_Planner_14_9_Animatie_Cinematica.zip -d native-project
+
+      - name: Save extracted project
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add native-project
+          git commit -m "Extract School Planner 14.9" || echo "No changes"
+          git push
