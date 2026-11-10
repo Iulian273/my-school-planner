@@ -1,0 +1,8 @@
+{
+  "appId": "com.myschoolplanner.app",
+  "appName": "My School Planner",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
